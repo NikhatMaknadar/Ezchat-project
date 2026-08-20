@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+* { box-sizing: border-box; }
+body { background: #eaf2f0; }
+.App { min-height: 100vh; font-family: "Inter", sans-serif; color: #182b2a; }
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(42,157,143,.18), transparent 32%),
+    radial-gradient(circle at 85% 85%, rgba(38,166,154,.16), transparent 32%),
+    #eef7f5;
+}
+.auth-card {
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(31,87,79,.08);
+  border-radius: 24px;
+  padding: 34px;
+  box-shadow: 0 24px 70px rgba(20,67,61,.14);
+}
+.brand-mark { color: #168a79; font-size: 15px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+
+.chat-app {
+  min-height: 100vh;
+  padding: 20px;
+  background:
+    linear-gradient(135deg, rgba(16,112,99,.12), transparent 35%),
+    #dcebe7;
+}
+.chat-shell {
+  width: min(1450px, 100%);
+  height: calc(100vh - 40px);
+  margin: auto;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(20,62,58,.16);
+  border: 1px solid rgba(23,75,69,.08);
+}
+.sidebar {
+  width: 360px;
+  flex: 0 0 360px;
+  border-right: 1px solid #e8eeee;
+  background: #fbfdfc;
+  position: relative;
+  z-index: 3;
+}
+.sidebar-header, .conversation-header { min-height: 76px; padding: 14px 18px; border-bottom: 1px solid #e8eeee; background: rgba(255,255,255,.96); }
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #edf4f2;
+  border-radius: 12px;
+  padding: 0 12px;
+  min-height: 42px;
+}
+.search-results {
+  position: absolute;
+  left: 12px; right: 12px;
+  top: 132px;
+  background: white;
+  border: 1px solid #e2e9e7;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+  z-index: 10;
+  overflow: hidden;
+}
+.search-person { padding: 12px; cursor: pointer; }
+.search-person:hover { background: #f0f7f5; }
+.chat-list { overflow-y: auto; height: calc(100% - 136px); }
+.chat-list-item { padding: 12px 16px; cursor: pointer; transition: .15s; }
+.chat-list-item:hover { background: #f1f7f5; }
+.chat-list-item.active { background: #e2f1ed; }
+.conversation { flex: 1; min-width: 0; display: flex; flex-direction: column; background: #f2f7f5; }
+.conversation.empty { background: #f2f7f5; }
+.welcome-panel { flex: 1; align-items: center; justify-content: center; }
+.welcome-icon { width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 18px; background: #d8eee8; font-size: 34px; }
+.message-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px clamp(14px, 5vw, 70px);
+  background-color: #e8f0ed;
+  background-image:
+    radial-gradient(rgba(23,87,78,.07) 1px, transparent 1px),
+    radial-gradient(rgba(23,87,78,.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+.message-row { width: 100%; margin-bottom: 10px; align-items: flex-end; }
+.message-row.mine { justify-content: flex-end; }
+.message-bubble {
+  max-width: min(70%, 620px);
+  padding: 9px 12px 7px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  word-break: break-word;
+}
+.message-bubble.theirs { background: #fff; border-top-left-radius: 4px; }
+.message-bubble.mine { background: #d6f6e8; border-top-right-radius: 4px; }
+.sender-name { font-size: 11px; font-weight: 800; color: #168a79; margin-bottom: 3px; }
+.message-time { font-size: 10px; color: #7b8b89; }
+.ticks { font-size: 12px; color: #71807e; font-weight: 700; }
+.ticks.read { color: #158cda; }
+.typing-bubble { display: inline-block; margin-top: 2px; padding: 7px 11px; border-radius: 14px; background: white; color: #168a79; font-size: 12px; }
+.composer { padding: 14px 20px; background: #f8fbfa; border-top: 1px solid #dfe8e5; }
+.empty-chat { height: 100%; align-items: center; justify-content: center; color: #778785; }
+.mobile-back { display: none !important; }
+
+@media (max-width: 800px) {
+  .chat-app { padding: 0; }
+  .chat-shell { height: 100vh; border-radius: 0; }
+  .sidebar { width: 100%; flex-basis: 100%; }
+  .sidebar.mobile-hidden { display: none; }
+  .conversation { width: 100%; }
+  .mobile-back { display: inline-flex !important; }
+  .message-bubble { max-width: 82%; }
+  .search-results { top: 132px; }
+}
